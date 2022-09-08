@@ -9,6 +9,8 @@ while True:
         b = int(input("Ingrese el segundo número entero: "))
         if a > b:
             print("El primer número no puede ser mayor al segundo número. \n")
+        elif a == b:
+            print("El primer número no puede ser igual al segundo número. \n")
         else:   
             for i in range(a,b+1):
                 if i % 2 == 0:
