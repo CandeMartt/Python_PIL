@@ -41,7 +41,6 @@ while True:
                 monto = int(input("Por favor ingrese el monto que desea depositar: "))
                 monto_en_cuenta += monto
                 print("Su monto actual es de: ", monto_en_cuenta)
-                break
             except:
                 print("ERROR. Por favor ingrese una opción valida.")
             seg_opcion = input("¿Desea realizar otro movimiento? \n Ingrese SI para continuar o NO para salir: ").upper()
