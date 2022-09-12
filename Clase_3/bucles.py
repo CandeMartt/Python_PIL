@@ -5,7 +5,7 @@
 for i in "Python": # Itera en un String. Un String es una lista de caracteres
     print(i)
 
-print(" ")
+ print(" ")
 
 lista = [True, False, 1 , 2, 3, 4, 'Hola']
 
@@ -13,8 +13,6 @@ for i in lista: # Itera en una lista. Toma el valor de cada elemento y lo muestr
     print(i)
 
 print(" ")
-
-lista = []
 
 for i in range(0,10): # La función range nos estipula un rango. La función itera 10 veces
     print(i)
@@ -26,6 +24,8 @@ for i in range(0,10,2): #El dos indica los saltos
 # Primer parametro marcamos el inicio, segundo parametro marcamos en final, tercer parámetro marcamos el salto que queremos que de.
 
 print(" ")
+
+lista = []
 
 for i in range(10): # La función itera 10 veces
     lista.append(i) #Me agrega valores af final de lista 
