@@ -30,8 +30,8 @@ print(resta())
 def saludo(nombre):
     print('Hola', nombre) # De esta forma imprime el resultado sin pasarselo a return
 
-# nombre = input("Ingrese su nombre: ")
-# saludo(nombre)
+nombre = input("Ingrese su nombre: ")
+saludo(nombre)
 
 # Funcion 4
 
@@ -66,8 +66,6 @@ def orden(lista, sentido):
 nombres = saludo(int(input("Ingrese la cantidad de saludos a efecuar: ")))
 print(orden(nombres, True))
 print(orden(nombres, False)) # Lo ejecuta en orden creciente porque esta en false
-
-
 
 
 
