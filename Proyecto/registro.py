@@ -2,13 +2,42 @@
 
 import random
 
-class Libro(): # Objeto
+class Libro(): # Clase
     def __init__(self, nombre, autor, estado, bio):
         self.nombre = nombre
         self.autor = autor
         self.estado = estado
         self.bio = bio
+    
+    def get_nombre(self): # Metodo get
+        return self.nombre
+    
+    def set_nombre(self, nuevo_nombre): # Metodo set
+        self.nombre = nuevo_nombre
+        return self.nombre
+    
+    def get_autor(self): # Metodo get
+        return self.autor
+    
+    def set_autor(self, nuevo_autor): # Metodo set
+        self.autor = nuevo_autor
+        return self.autor
+    
+    def get_estado(self): # Metodo get
+        return self.estado
+    
+    def set_nombre(self, nuevo_estado): # Metodo set
+        self.estado = nuevo_estado
+        return self.estado
         
+    def get_bio(self): # Metodo get
+        return self.bio
+    
+    def set_bio(self, nuevo_bio): # Metodo set
+        self.bio = nuevo_bio
+        return self.bio
+
+
     def listar_libro(self): # Metodo
         """
         Este metodo permite listar los libros ingresados
@@ -18,6 +47,7 @@ class Libro(): # Objeto
         print('Estado: ', self.estado,  end=' - ')
         print('Descripcion: ', self.bio)
 
+# Funciones
 
 def crear_libro(lista):
     """
@@ -46,9 +76,14 @@ def crear_libro(lista):
     libro_creado = Libro(nombre, autor, estado, bio) # Crea el objeto con los datos ingresados
     lista.append(libro_creado) # Agrega el objeto a la lista
 
-def write(book):
-    for i in range(len(book)):
-        print('Nombre', book[i].nombre, end=' - ')
-        print('Autor: ', book[i].autor, end=' - ')
-        print('Estado: ', book[i].estado, end=' - ')
-        print('Descripcion: ', book[i].bio)
+def cambiar_nombre(lista):
+    while True:
+        nombre_libro = input("Ingrese el nombre del libro a cambiar: ")
+        for i in lista:
+            if nombre_libro != i.get_nombre():
+                print("Ese libro no existe no existe.")
+            elif nombre_libro == i.get_nombre():
+                for nombre_libro in lista: 
+                    nombre_libro.set_nombre(nuevo_nombre = input("Ingrese el nuevo nombre del libro: "))
+
+        break
