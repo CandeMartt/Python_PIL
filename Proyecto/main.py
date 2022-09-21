@@ -1,23 +1,24 @@
 import registro as re
 
 def menu():  
-  print('-----------MENU PRINCIPAL-----------')
-  print('Por favor ingrese una opcion: ')
-  print('1. Crear un libro')
-  print('2. Listar libros')
-  print('3. Cambiar el nombre del libro: ')
-  print('4. Cambiar el nombre del autor: )')
-  print('5. Cambiar descripcion del libro: )')
-  print('6. Cambiar el estado (DISPONIBLE O ALQUILADO)')
-  print('7. Salir')
-  print("-"*36)
+  print("""
+------------------------ MENU PRINCIPAL ------------------------
+\t Por favor ingrese una opcion:
+\t 1. Crear un libro
+\t 2. Listar libros
+\t 3. Cambiar nombre del libro 
+\t 4. Cambiar nombre del autor 
+\t 5. Cambiar estado del libro (DISPONIBLE O ALQUILADO) 
+\t 6. Cambiar descripcion del libro 
+\t 7. Salir
+""")
+  print("-"*64)
+  print('')
 
-            
 def validar_libros(lista):
   """
   Esta función nos permite verificar si la lista esta vacia. 
   Si la lista esta vacia pedira que se carguen libros, sino imprimira por pantalla los libros ya cargados.
-
   Args:
       lista (list): lista generica
   """
@@ -34,25 +35,26 @@ while opcion != '7':
     opcion = input('Elija una opcion: ')
 
     if (opcion == '1'):
-      re.crear_libro(lista)
-      print('Se ha cargado un libro!')
+      cant = int(input('Ingrese cantidad de libros a cargar: '))
+      for i in range(cant):
+        re.crear_libro(lista)
+      print('Se han cargado libros!')
       print('Total de libros cargados: ', + lista.__len__())
        
     elif (opcion == '2'):
       validar_libros(lista)
     
-      
     elif (opcion == '3'):
       re.cambiar_nombre(lista)
 
     elif (opcion == '4'):
-      print('Soy la opcion 4!')
+      re.cambiar_autor(lista)
 
     elif (opcion == '5'):
-      print('Soy la opcion 5!')
-
-    elif (opcion == '6'):
-      print('Soy la opcion 6!')
+      re.cambiar_estado(lista)
       
+    elif (opcion == '6'):
+      re.cambiar_bio(lista)
+
     else:
-      print('Nos vemos!')
+      print('¡Gracias por utilizar este programa!')   
