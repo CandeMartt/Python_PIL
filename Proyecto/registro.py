@@ -43,14 +43,13 @@ class Libro():  # Clase
         """
         Este metodo permite listar los libros ingresados
         """
-        print('Nombre: ', self.nombre, end=' - ')
-        print('Autor: ', self.autor, end=' - ')
-        print('Estado: ', self.estado, end=' - ')
+        print('Nombre: ', self.nombre, end=' | ')
+        print('Autor: ', self.autor, end=' | ')
+        print('Estado: ', self.estado, end=' | ')
         print('Descripcion: ', self.bio)
 
 
 # Funciones
-
 
 def crear_libro(lista):
     """
@@ -60,7 +59,7 @@ def crear_libro(lista):
     """
     # Crear libros de forma aleatoria
     lista_nombre = [
-        'Cenicienta', 'Blanca Nieves', 'Tarzan', 'Ulises', 'Romeo y Julieta',
+        'Cenicienta', 'Blanca Nieves', 'Tarzan', 'Ulises','Romeo y Julieta',
         'Homero'
     ]
     lista_autor = [
@@ -75,9 +74,9 @@ def crear_libro(lista):
     estado = random.choice(lista_estado)
     bio = random.choice(lista_bio)
 
-    libro_creado = Libro(nombre, autor, estado, bio)  # Crea el objeto con los datos ingresados
+    libro_creado = Libro(nombre, autor, estado,
+                         bio)  # Crea el objeto con los datos ingresados
     lista.append(libro_creado)  # Agrega el objeto a la lista
-
 
 
 def cambiar_nombre(lista):
@@ -87,25 +86,29 @@ def cambiar_nombre(lista):
     Args:
         lista (list): lista generica
     """
-    if len(lista) == 0: #Me aseguro que la lista no este vacia al iniciar 
+    if len(lista) == 0:  #Me aseguro que la lista no este vacia al iniciar
         print("La lista de libros esta vacia. Por favor agregue libros. ")
     else:
-        print(Libro.listar_libro)
+        for i, libro in enumerate(lista):
+            print(i, "Nombre: ", libro.nombre, "|", "Autor: ", libro.autor,"|", "Estado: ", libro.estado, "|", "Descripcion: ", libro.bio)
+        print('')
         flag = True
         flag_primero = False
         while flag:
-            #Anda-----------
+            #Anda------------------------------------------------------------------
             nombre_libro = input("Ingrese el nombre del libro a cambiar: ")
+
             for i, elemento in enumerate(lista):
                 n = lista[i].get_nombre()
                 if nombre_libro == n and flag_primero == False:
                     lista[i].nombre = input('Ingrese nuevo nombre: ')
                     flag_primero = True
                     flag = False
-            #---------------
-                else:
-                    print('Nombre no valido, intente nuevamente.')
-              
+            if flag_primero == False:
+                print('Nombre no valido, intente nuevamente.')
+            #----------------------------------------------------------------------
+
+
 def cambiar_autor(lista):
     """
     Esta funcion nos permite cambiar el nombre del autor a traves del nombre de libro
@@ -113,24 +116,27 @@ def cambiar_autor(lista):
     Args:
         lista (list): lista generica
     """
-    if len(lista) == 0: #Me aseguro que la lista no este vacia al iniciar 
+    if len(lista) == 0:  #Me aseguro que la lista no este vacia al iniciar
         print("La lista de libros esta vacia. Por favor agregue libros. ")
     else:
-        print(Libro.listar_libro)
+        for i, libro in enumerate(lista):
+            print(i, "Nombre: ", libro.nombre, "|", "Autor: ", libro.autor,"|", "Estado: ", libro.estado, "|", "Descripcion: ", libro.bio)
+        print('')
         flag = True
         flag_primero = False
         while flag:
-            #Anda-----------
-            nombre_libro = input("Ingrese el nombre del libro que desea cambiarle el autor: ")
+            #Anda-------------------------------------------------------------------------------
+            nombre_libro = input(
+                "Ingrese el nombre del libro que desea cambiarle el autor: ")
             for i, elemento in enumerate(lista):
                 n = lista[i].get_nombre()
                 if nombre_libro == n and flag_primero == False:
-                    lista[i].autor= input('Ingrese nuevo nombre del autor: ')
+                    lista[i].autor = input('Ingrese nuevo nombre del autor: ').capitalize()
                     flag_primero = True
                     flag = False
-            #---------------
-                else:
-                    print('Nombre de libro no valido, intente nuevamente.')
+            if flag_primero == False:
+                print('Nombre no valido, intente nuevamente.')
+            #------------------------------------------------------------------------------------
 
 
 def cambiar_estado(lista):
@@ -143,7 +149,9 @@ def cambiar_estado(lista):
     if len(lista) == 0: #Me aseguro que la lista no este vacia al iniciar 
         print("La lista de libros esta vacia. Por favor agregue libros. ")
     else:
-        print(Libro.listar_libro)
+        for i, libro in enumerate(lista):
+            print(i, "Nombre: ", libro.nombre, "|", "Autor: ", libro.autor,"|", "Estado: ", libro.estado, "|", "Descripcion: ", libro.bio)
+        print('')
         flag = True
         flag_primero = False
         while flag:
@@ -152,12 +160,13 @@ def cambiar_estado(lista):
             for i, elemento in enumerate(lista):
                 n = lista[i].get_nombre()
                 if nombre_libro == n and flag_primero == False:
-                    lista[i].estado= input('Ingrese el nuevo estado del libro (DISPONIBLE O ALQUILADO): ')
+                    lista[i].estado= input('Ingrese el nuevo estado del libro (DISPONIBLE O ALQUILADO): ').capitalize()
                     flag_primero = True
                     flag = False
+            if flag_primero == False:
+                print('Nombre no valido, intente nuevamente.')
             #---------------
-                else:
-                    print('Nombre de libro no valido, intente nuevamente.')
+
 
 
 def cambiar_bio(lista):
@@ -170,7 +179,9 @@ def cambiar_bio(lista):
     if len(lista) == 0: #Me aseguro que la lista no este vacia al iniciar 
         print("La lista de libros esta vacia. Por favor agregue libros. ")
     else:
-        print(Libro.listar_libro)
+        for i, libro in enumerate(lista):
+            print(i, "Nombre: ", libro.nombre, "|", "Autor: ", libro.autor,"|", "Estado: ", libro.estado, "|", "Descripcion: ", libro.bio)
+        print('')
         flag = True
         flag_primero = False
         while flag:
@@ -179,9 +190,9 @@ def cambiar_bio(lista):
             for i, elemento in enumerate(lista):
                 n = lista[i].get_nombre()
                 if nombre_libro == n and flag_primero == False:
-                    lista[i].bio= input('Ingrese la nueva descripcion del libro: ')
+                    lista[i].bio= input('Ingrese la nueva descripcion del libro: ').capitalize()
                     flag_primero = True
                     flag = False
+            if flag_primero == False:
+                print('Nombre no valido, intente nuevamente.')
             #---------------
-                else:
-                    print('Nombre de libro no valido, intente nuevamente.')
